@@ -1,0 +1,22 @@
+{
+  "name": "fintech_kisa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmini1234/FINTECH_KISA.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jmini1234/FINTECH_KISA/issues"
+  },
+  "homepage": "https://github.com/jmini1234/FINTECH_KISA#readme",
+  "dependencies": {
+    "request": "^2.88.2"
+  }
+}
