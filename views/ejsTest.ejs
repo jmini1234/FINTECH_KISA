@@ -1,5 +1,26 @@
 <!DOCTYPE html>
     <h1>안녕하세요</h1>
     <h2>ejs로 만든 페이지 입니다.</h2>
-    <button>버튼</button>
+    <input type="text" id="inputText"/>
+    <input type="text" id="inputText2"/>
+    <button id="firstButton">버튼</button>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"   
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="   
+        crossorigin="anonymous">
+    </script>
+    <script>
+        $('#firstButton').click(function(){
+            var userInput = $("#inputText").val();
+            var userInput = $("#inputText2").val();
+            $.ajax({
+                url: "/userData",
+                type: "POST",
+                data: {
+                },
+                success: function (data) {
+                },
+            });
+        
+        })
+    </script>
 </html>
