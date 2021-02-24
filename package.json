@@ -17,8 +17,11 @@
   },
   "homepage": "https://github.com/jmini1234/FINTECH_KISA#readme",
   "dependencies": {
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "install": "^0.13.0",
     "mysql": "^2.18.1",
+    "npm": "^7.5.6",
     "request": "^2.88.2",
     "xml2js": "^0.4.23"
   }
