@@ -412,7 +412,6 @@
 
     <script>
       var jwtToken = sessionStorage.getItem("ourtoken");
-      console.log(jwtToken);
       if (jwtToken == "") {
         alert("로그인해주세요");
         window.location.href = "/login";
@@ -426,7 +425,6 @@
             ourtoken: jwtToken,
           },
           success: function (data) {
-            console.log(data.res_list);
             for (var i = 0; i < data.res_list.length; i++) {
               $("#cardList").append(
                 '<div class="balance-card mb-15">' +

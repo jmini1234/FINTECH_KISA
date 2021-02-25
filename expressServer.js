@@ -96,13 +96,11 @@ app.post('/login',function(req,res){
 
 app.post('/list', auth, function(req, res){
   var user = req.decoded;
-  console.log(user);
   var sql = "SELECT * FROM user WHERE id = ?";
   connection.query(sql,[user.userId], function(err, result){
       if(err) throw err;
       else {
           var dbUserData = result[0];
-          console.log(dbUserData);
           var option = {
               method : "GET",
               url : "https://testapi.openbanking.or.kr/v2.0/user/me",
@@ -139,7 +137,6 @@ app.post('/balance', auth, function(req,res){
   var transId = companyId + countnum;
   var sql = "SELECT * FROM user WHERE id = ?";
   var transdtime = moment(new Date()).format('YYYYMMDDhhmmss');
-  
   connection.query(sql,[user.userId], function(err, result){
       if(err) throw err;
       else {
@@ -162,14 +159,53 @@ app.post('/balance', auth, function(req,res){
                   throw err;
               }
               else {
-                  console.log(body);
                   var balanceRequestResult = JSON.parse(body);
                   res.json(balanceRequestResult)
               }
-          })        
+          })
       }
-  })  
-  
+  })
+})
+
+app.post('/transactionList', auth, function(req,res){
+  var user = req.decoded;
+  var countnum = Math.floor(Math.random() * 1000000000) + 1;
+  var transId = companyId + countnum;
+  var sql = "SELECT * FROM user WHERE id = ?";
+  var transdtime = moment(new Date()).format('YYYYMMDDhhmmss');
+  connection.query(sql,[user.userId], function(err, result){
+      if(err) throw err;
+      else {
+          var dbUserData = result[0];
+          var option = {
+              method : "GET",
+              url : "https://testapi.openbanking.or.kr/v2.0/account/transaction_list/fin_num",
+              headers : {
+                  Authorization : "Bearer " + dbUserData.accesstoken
+              },
+              qs : {
+                bank_tran_id : transId,
+                fintech_use_num : req.body.fin_use_num,
+                inquiry_type : "A",
+                inquiry_base : "D",
+                from_date : "20160404", 
+                to_date : "20160405",
+                sort_order : "D",
+                tran_dtime : transdtime
+              }
+          }
+          request(option, function(err, response, body){
+              if(err){
+                  console.error(err);
+                  throw err;
+              }
+              else {
+                  var transRequestResult = JSON.parse(body);
+                  res.json(transRequestResult)
+              }
+          })
+      }
+  }) 
 })
 
 app.post('/signup',function(req,res){
