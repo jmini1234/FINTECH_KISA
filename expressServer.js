@@ -92,6 +92,31 @@ app.post('/login',function(req,res){
   })
 })
 
+app.post('/list', auth, function(req,res){
+  var option = {
+      method : "GET",
+      url : "https://testapi.openbanking.or.kr/v2.0/user/me",
+      headers : {
+        Authorization : 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiIxMTAwNzcwMTk4Iiwic2NvcGUiOlsiaW5xdWlyeSIsImxvZ2luIiwidHJhbnNmZXIiXSwiaXNzIjoiaHR0cHM6Ly93d3cub3BlbmJhbmtpbmcub3Iua3IiLCJleHAiOjE2MjE5OTI2NjgsImp0aSI6Ijg5MzAzNWUxLTMzMjItNGNhMC1iZWQwLTNmOWE3YWZlNDNlZCJ9.GX-GX0dWImmZEZzIEfx77vGWniFqeCAX1bmrm48Z2OA'
+      },
+      qs : {
+        user_seq_no : '1100770198'
+      }
+  }
+  request(option, function(err, response, body){
+      if(err){
+          console.error(err);
+          throw err;
+      }
+      else {
+          var listRequestResult = JSON.parse(body);
+          console.log(listRequestResult);
+          res.json(listRequestResult);
+      }
+  })
+
+})
+
 app.post('/signup',function(req,res){
   // 사용자가 입력한 정보 저장
   var userName = req.body.userName;
