@@ -125,6 +125,10 @@ app.post('/list', auth, function(req, res){
   })
 })
 
+app.get('/qrcode',function(req,res){
+  res.render('qrcode');
+})
+
 app.get('/balance',function(req,res){
   res.render('balance');
 })
