@@ -41,6 +41,10 @@ app.get('/signup',function(req,res){
   res.render('signup');
 })
 
+app.get('/main',function(req,res){
+  res.render('main');
+})
+
 app.get('/login',function(req,res){
   res.render('login');
 })
