@@ -347,12 +347,11 @@
             amount: $("#amountInput").val(),
           },
           success: function (data) {
-            console.log("??");
             console.log(data);
             if (data.rsp_code == "A0000") {
               alert("전송완료");
             }
-          },
+          }
         });
       }
     </script>

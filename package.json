@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/jmini1234/FINTECH_KISA#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
