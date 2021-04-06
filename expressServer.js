@@ -5,13 +5,9 @@ const request = require('request');
 var jwt = require('jsonwebtoken');
 var auth = require('./lib/auth')
 var moment = require('moment');
-var cors = require('cors')
 
 var companyId = "M202111570U"
 require('dotenv').config();
-
-
-app.use(cors())
 
 // json 타입에 데이터 전송을 허용한다.
 app.use(express.json());
@@ -185,60 +181,12 @@ app.post('/withdraw',auth,function(req,res){
                   throw err;
               }
               else {
-                // body 타입 object라서 바로 보내기
                 res.json(body);
-                // 출금이 완료되면 바로 입금 api 진행하기 (A0000)
-                if(response.body.rsp_code=="A0000"){
-                  var countnum = Math.floor(Math.random() * 1000000000) + 1;
-                  var transId = companyId + countnum;
-                  var option = {
-                      method : "POST",
-                      url : "https://testapi.openbanking.or.kr/v2.0/transfer/deposit/fin_num",
-                      headers : {
-                          Authorization : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJNMjAyMTExNTcwIiwic2NvcGUiOlsib29iIl0sImlzcyI6Imh0dHBzOi8vd3d3Lm9wZW5iYW5raW5nLm9yLmtyIiwiZXhwIjoxNjIyMDgzMTM5LCJqdGkiOiI5NTJiNDc5Mi01MjBlLTQ5YWMtOTgzYS0xZmM1YTZlNzEzYmQifQ.y08wfqu98bbktd1UZWfotpC1wssbZgZiL6Ht4CLO96w"
-                      },
-                      json: {
-                        "cntr_account_type" : "N",
-                        "cntr_account_num" : "200000000001",
-                        "wd_pass_phrase" : "NONE",
-                        "wd_print_content" : "오픈서비스캐시백",
-                        "name_check_option" : "on",
-                        "tran_dtime" : transdtime,
-                        "req_cnt" : "1",
-                        "req_list" : [
-                            {
-                                "tran_no" : "1",
-                                "bank_tran_id" : transId,
-                                "fintech_use_num" : fin_use_num,
-                                "req_client_fintech_use_num" : to_fin_use_num,
-                                "print_content" : "오픈서비스캐시백",
-                                "tran_amt" : "1000",
-                                "req_client_name": "심정민",
-                                "req_client_num" : "SIMJEONGMIN",
-                                "transfer_purpose" : "AU"
-                            }
-                        ]
-                    }
-                  }
-                  request(option, function(err, response, body){
-                    if(err){
-                        console.error(err);
-                        throw err;
-                    }
-                    else {
-                      console.log(body);
-                    }
-                  })
-                }
-                else{
-                  console.log("에러");
-                }
               }
           })
       }
   })
 })
-
 
 app.post('/balance', auth, function(req,res){
   // 사용자 정보 조회
@@ -369,7 +317,8 @@ app.get('/authResult',function(req,res){
           res.render('resultChild', {data:accessRequestResult});
       }
   })
-
 })
 
-app.listen(3000)
+app.listen(process.env.PORT || 8080, function(){
+  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+});
