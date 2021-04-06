@@ -2,7 +2,7 @@
   "name": "fintech_kisa",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "expressServer.js",
   "scripts": {
     "start": "node expressServer.js",
     "test": "echo \"Error: no test specified\" && exit 1"
