@@ -24,9 +24,9 @@ app.set('view engine','ejs');
 var mysql      = require('mysql');
 var connection = mysql.createConnection({
   host     : 'us-cdbr-east-03.cleardb.com',
-  user     : 'baeb18a87136ed:7912102f',
-  password : 'heroku_b2e3e1681c45173',
-  database : 'fintech'
+  user     : 'baeb18a87136ed',
+  password : '7912102f',
+  database : 'heroku_b2e3e1681c45173'
 });
  
 connection.connect();
