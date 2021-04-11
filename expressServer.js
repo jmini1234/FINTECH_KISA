@@ -22,14 +22,32 @@ app.set('views',__dirname+'/views');
 app.set('view engine','ejs');
 
 var mysql      = require('mysql');
-var connection = mysql.createConnection({
+var db = mysql.createConnection({
   host     : 'us-cdbr-east-03.cleardb.com',
   user     : 'baeb18a87136ed',
   password : '7912102f',
   database : 'heroku_b2e3e1681c45173'
 });
  
-connection.connect();
+function handleDisconnect() {
+  db.connect(function(err) {            
+    if(err) {                            
+      console.log('error when connecting to db:', err);
+      setTimeout(handleDisconnect, 2000); 
+    }                                   
+  });                                 
+                                         
+  db.on('error', function(err) {
+    console.log('db error', err);
+    if(err.code === 'PROTOCOL_CONNECTION_LOST') { 
+      return handleDisconnect();                      
+    } else {                                    
+      throw err;                              
+    }
+  });
+}
+
+handleDisconnect();
  
 app.get('/', function (req, res) {
   res.send('Hello World')
