@@ -28,10 +28,10 @@ API 테스팅 : Postman
  <p>
 
  <br>
-<img width="330" height="700" src="https://user-images.githubusercontent.com/37237145/114308715-bfdaa180-9b1f-11eb-9500-f8f5f9b0a99a.JPG" />
-<img width="330" height="700" src="https://user-images.githubusercontent.com/37237145/114308783-ec8eb900-9b1f-11eb-963e-5a0fdc0dcc78.JPG"/>
-<img width="330" height="700" src="https://user-images.githubusercontent.com/37237145/114308799-fca69880-9b1f-11eb-8783-4c24fb30a9df.JPG"/>
-<img width="330" height="700" src="https://user-images.githubusercontent.com/37237145/114308864-3d9ead00-9b20-11eb-91d8-423e726a60fb.JPG"/>
-<img width="330" height="700" src="https://user-images.githubusercontent.com/37237145/114309318-bc481a00-9b21-11eb-8d97-6093c815d32f.JPG"/>
-<img width="330" height="700" src="https://user-images.githubusercontent.com/37237145/114309320-be11dd80-9b21-11eb-9a9e-d68299257911.JPG"/>
+<img width="300" height="600" src="https://user-images.githubusercontent.com/37237145/114308715-bfdaa180-9b1f-11eb-9500-f8f5f9b0a99a.JPG" />
+<img width="300" height="600" src="https://user-images.githubusercontent.com/37237145/114308783-ec8eb900-9b1f-11eb-963e-5a0fdc0dcc78.JPG"/>
+<img width="300" height="600" src="https://user-images.githubusercontent.com/37237145/114308799-fca69880-9b1f-11eb-8783-4c24fb30a9df.JPG"/>
+<img width="300" height="600" src="https://user-images.githubusercontent.com/37237145/114308864-3d9ead00-9b20-11eb-91d8-423e726a60fb.JPG"/>
+<img width="300" height="600" src="https://user-images.githubusercontent.com/37237145/114309318-bc481a00-9b21-11eb-8d97-6093c815d32f.JPG"/>
+<img width="330" height="600" src="https://user-images.githubusercontent.com/37237145/114309320-be11dd80-9b21-11eb-9a9e-d68299257911.JPG"/>
 
